@@ -1,8 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-const tempoDeExpiracao = {
-    expiresIn: '7h',
+const config = {
+  expiresIn: '7d',
 };
-const senhaSecreta = process.env.SENHA_SECRETA;
-
-module.exports = (data = {}) => jwt.sign({ data }, senhaSecreta, tempoDeExpiracao);
+const SENHA = process.env.JWT_SECRET;
+module.exports = (data = {}) => jwt.sign({ data }, SENHA, config);
