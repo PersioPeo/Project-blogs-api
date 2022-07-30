@@ -28,7 +28,7 @@ const listarController = async (_req, res) => {
 
 const pegarPorIdController = async (req, res) => {
     const { id } = req.params;
-    const result = await usersService.pegarPorId(id);
+    const result = await usersService.pegarPorIdService(id);
     if (!result) return res.status(404).json({ message: 'User does not exist' });
     return res.status(200).json(result);
 };
