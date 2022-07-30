@@ -6,5 +6,4 @@ module.exports = {
     jwtGerador,
     validaUsuario,
     verifyCategories,
-
 };

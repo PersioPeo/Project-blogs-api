@@ -1,6 +1,7 @@
 const jwtGerador = require('../helpers/jwtGerador');
 const usersService = require('../services/usersService');
-const validaUsuario = require('../helpers/validaUsuario');
+const { validaUsuario } = require('../helpers');
+const { User } = require('../database/models');
 
 const criarController = async (req, res) => {
     const { displyName, email, password, image } = req.body;
@@ -9,16 +10,19 @@ const criarController = async (req, res) => {
         const [code, message] = error.message.split('|');
         return res.status(code).json({ message });
     }
-    const [row, created] = await usersService.criarUsuario(displyName, email, password, image);
+    const [row, created] = await User.findOrCreate({
+        where: { email },
+        defaults: { displyName, password, image },
+    });
     if (!created) {
-        return res.status(400).json({ message: 'User already registered' });
+        return res.status(409).json({ message: 'User already registered' });
     }
     const token = jwtGerador({ email: row.dataValues.email });
     return res.status(201).json({ token });
 };
 
-const listarController = async (req, res) => { 
-    const result = await usersService.listarUsuarios();
+const listarController = async (_req, res) => { 
+    const result = await usersService.listarService();
     return res.status(200).json(result);
 };
 
