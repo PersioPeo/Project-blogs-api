@@ -19,8 +19,8 @@ const pegarPorIdService = async (id) => {
 };
 
 const removerService = async (id) => {
-    const user = await User.destroy({ where: { id } });
-    return user;
+    await User.destroy({ where: { id } });
+    return true;
 };
 
 module.exports = {

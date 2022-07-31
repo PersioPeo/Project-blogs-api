@@ -34,8 +34,8 @@ const pegarPorIdController = async (req, res) => {
 };
 
 const removerController = async (req, res) => {
-    const { id } = req.params;
-    await usersService.removerUsuario(id); 
+    const { id } = req.tokenData;
+    await usersService.removerService(id); 
     
     return res.status(204).end();
 };
