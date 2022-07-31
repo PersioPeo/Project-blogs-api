@@ -7,6 +7,7 @@ const {
     listarController,
     pegarPorIdController,
     removerController,
+    
 } = require('../controllers/userController');
 
 const { authMiddleware } = require('../middleware');
