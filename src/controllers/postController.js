@@ -70,7 +70,7 @@ const removerController = async (req, res) => {
 
 const atualizarSearchController = async (req, res) => { 
     const { q } = req.query;
-    const result = await postService.atualizarSearchService(q);
+    const result = await postService.criarSearchService(q);
     return res.status(200).json(result);
 };
 
