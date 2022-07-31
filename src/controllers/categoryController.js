@@ -10,11 +10,8 @@ const criarController = async (req, res) => {
 };
 
 const listarController = async (req, res) => { 
-    const categories = await categoryService.listar();
-    const { name } = req.body;
-    if (!name) { 
-        return res.status(400).json({ message: '"name" is required' });
-    }
+    const categories = await categoryService.listarService();
+    
     return res.status(200).json(categories);
 };
 
