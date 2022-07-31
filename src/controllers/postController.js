@@ -5,16 +5,15 @@ const postService = require('../services/postService');
 const criarController = async (req, res) => { 
     const { title, content, categoryIds } = req.body;
     const { tokenData } = req;
-
+    if (!title || !content || !categoryIds) {
+        return res.status(400).json({
+            message: 'Some required fields are missing',
+        });
+    }
     const result = await verifyCategories(req.body);
     if (!result) {
         return res.status(400).json({
             message: '"categoryIds" not found',
-        });
-    }
-    if (!title || !content || !categoryIds) {
-        return res.status(400).json({
-            message: 'Some required fields are missing',
         });
     }
     const newResult = await postService.criarService(title, content, categoryIds, tokenData);
