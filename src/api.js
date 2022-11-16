@@ -4,7 +4,7 @@ const rescue = require('express-rescue');
 
 const { error } = require('./middleware');
 
-const { loginRouter } = require('./routes/loginRoutes');
+const { loginRouter } = require('./routes/loginRoute');
 const { userRouter } = require('./routes/userRoute');
 const { categoryRouter } = require('./routes/categoryRoute');
 const { postRouter } = require('./routes/postRoute');

@@ -1,5 +1,5 @@
 const jwtGerador = require('../helpers/jwtGerador');
-const loginServices = require('../services/loginServices');
+const loginServices = require('../services/loginService');
 
 const loginController = async (req, res) => {
     const { email, password } = req.body;
