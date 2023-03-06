@@ -11,11 +11,11 @@ Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua cr
 ---
 # indice: Projeto: Blog API.
 
-### Orientações
+## Orientações
 
-* Com Docker
+### Com Docker
     - avisoAntes de começar, seu docker-compose precisa estar na versão 1.29 ou superior. Veja aqui ou na documentação como instalá-lo. No primeiro artigo, você pode substituir onde está com 1.26.0por 1.29.2.
-
+    
     - fonte de informaçãoRode os serviços nodee dbcom o comando docker-compose up -d --build.
 
     - Lembre-se de parar o mysqlse estiver usando localmente na porta padrão ( 3306), ou adapte, caso queria fazer uso da aplicação em containers;
